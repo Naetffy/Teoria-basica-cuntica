@@ -1,0 +1,21 @@
+import Complex2
+
+def main():
+    print("Suma vectores: ",Complex2.SumV([(1,2),(2,2)],[(3,2),(1,1)]))
+    print("Inverso aditivo de un vector: ",Complex2.InvV([(1,2),(2,2)]))
+    print("Multiplicacion de un escalar por un vector: ",Complex2.eVec((1,2),[(1,2),(2,2),(3,3),(3,2),(1,1),(1,1)]))
+    print("Suma matricial: ",Complex2.SumM([[(1,2),(2,1)],[(3,2),(5,4)]],[[(1,2),(2,1)],[(3,2),(5,4)]]))
+    print("Inverso aditivo de una matriz: ", Complex2.InvM([[(1,2),(2,2)],[(3,3),(3,2)],[(1,1),(1,1)]]))
+    print("Multiplicacion de un escalar por una matriz: ",Complex2.eMat((1,2),[[(1,2),(2,2)],[(3,3),(3,2)],[(1,1),(1,1)]]))
+    print("Transpuesta de una matriz o vector: ",Complex2.Tra([[(1,2),(2,2),(5,5)],[(3,3),(3,2),(4,4)],[(1,1),(1,1),(6,4)]]))
+    print("Conjugado de una matriz o vector:",Complex2.ConjM([[(1,2),(2,2),(5,5)],[(3,3),(3,2),(4,4)],[(1,1),(1,1),(6,4)]]))
+    print("Adjunta de una matriz o un vector: ",Complex2.AdjM([[(1,2),(2,2),(5,5)],[(3,3),(3,2),(4,4)],[(1,1),(1,1),(6,4)]]))
+    print("Producto entre dos matrices: ",Complex2.MulM([[(1,1),(2,2),(3,3)],[(3,3),(4,4),(5,5)],[(3,3),(4,4),(5,5)]],[[(1,1),(2,2),(6,6)],[(3,3),(4,4),(5,5)],[(3,3),(4,4),(5,5)]]))
+    print("Accion de una matriz sobre un vector: ",Complex2.AcMV([[(1,1),(2,2),(3,3)],[(3,3),(4,4),(5,5)],[(3,3),(4,4),(5,5)]],[(1,1),(2,2),(3,3)]))
+    print("Producto interno entre dos vectores: ",Complex2.PriV([(1,2),(2,2),(3,3)],[(3,2),(1,1),(1,1)]))
+    print("Norma de un vector: ", Complex2.NorV([(4,3),(6,-4),(14,-7),(0,13)]))
+    print("Distancia entre dos vectores: ",Complex2.DisV([(3,0),(1,0),(2,0)],[(2,0),(2,0),(-1,0)]))
+    print("Revisar si una matriz es unitaria: ",Complex2.Unit([[(1,0),(0,0)],[(0,0),(1,0)]]))
+    print("Revisar si una maatriz es hermitania: ", Complex2.Herm([[(1,0),(0,-1)],[(0,1),(1,0)]]))
+    print("Producto tensor: ",Complex2.Prot([[(1,1),(2,2),(3,3)]],[[(1,1),(2,2),(6,6)],[(3,3),(4,4),(5,5)],[(3,3),(4,4),(5,5)]]))
+main()
