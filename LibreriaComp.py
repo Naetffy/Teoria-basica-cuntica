@@ -1,5 +1,5 @@
-import Complex2 as CP
-import Complex as CPb
+import Comp as CP
+import Base as CPb
 from sympy import *
 
 def comp(num):
@@ -16,7 +16,7 @@ def normalize(Data1):
     res = Data1
     norm = CP.NorV(Data1)
     for i in range(len(Data1)):
-        res[i] = (round(res[i][0]/norm,4),round(res[i][1]/norm,4))
+        res[i] = (round(res[i][0]/norm,3),round(res[i][1]/norm,3))
     return res
 
 def trans(Data1,Data2):
@@ -99,36 +99,19 @@ def protravp(vp,quet):
         res.append(round(CPb.mod(trans(i,quet))**2,2))
     return res
 
-pri = prob([(-3,-1),(0,-2),(0,1),(2,0)],2)
+def probs(Matriz):
+    for i in range(len(Matriz)):
+        for j in range(len(Matriz[0])):
+            Matriz[i][j] = (round(CPb.mod(Matriz[i][j])**2,2),0)
+    return Matriz
 
-nor = normalize([(2,-3),(1,2)])
+def QuantSys(Estado,Matriz,Time):
+    Graf = Matriz
+    MState = []
+    for i in range(1,Time):
+        Graf = CP.MulM(Graf,Matriz)
+    Grafprob = probs(Graf)
+    for i in range(len(Estado)):
+        MState.append([(Estado[i],0)])
+    return CP.MulM(Grafprob,MState)
 
-trasnp = trans([(0,1),(1,0)],[(1,0),(0,-1)])
-
-ptrasnp = protrans([(0,1),(1,0)],[(1,0),(0,-1)])
-
-ExpectedVal = media([[(1,0),(0,-1)],[(0,1),(2,0)]],[(0.707106,0),(0,0.707106)])
-
-Delta = delta([[(1,0),(0,-1)],[(0,1),(2,0)]],[(0.707106,0),(0,0.707106)])
-
-Var = varince([[(1,0),(0,-1)],[(0,1),(2,0)]],[(0.707106,0),(0,0.707106)])
-
-Valoresp = valp([[(-1,0),(0,-1)],[(0,1),(1,0)]])
-
-Vectoresp = vecp([[(-1,0),(0,-1)],[(0,1),(1,0)]])
-
-tranvp = transvp(Vectoresp,[(0.5,0),(0.5,0)])
-
-probvp = protravp(Vectoresp,[(0.5,0),(0.5,0)])
-
-print(pri)
-print(nor)
-print(trasnp)
-print(ptrasnp)
-print(ExpectedVal)
-print(Delta)
-print(Var)
-print(Valoresp)
-print(Vectoresp)
-print(tranvp)
-print(probvp)
